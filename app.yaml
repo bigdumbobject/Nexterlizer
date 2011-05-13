@@ -1,0 +1,17 @@
+application: thenexterlizer
+version: 7
+runtime: python
+api_version: 1
+
+handlers:
+- url: /styles
+  static_dir: styles
+
+- url: .*
+  script: main.py
+
+- url: /favicon.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon.ico
+
+

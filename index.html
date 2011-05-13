@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ 	<link type="text/css" rel="stylesheet" href="/styles/main.css" />
+
+    	<title>Nexterlizer</title>
+
+	<script type="text/javascript" src="http://api.wipmania.com/wip.js"></script>
+	<script src="http://www.google.com/jsapi?key=insert" type="text/javascript"></script>
+    	
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1><span class="title">Nexterlizer</span></h1>
+			<p class="description">Pick one. Enjoy it.</p>
+			<br/>
+			<p class="about"><a href="http://blog.nexterlizer.com">About</a></p>
+		</div>
+
+		<div id="content">
+		
+		<form method="post" action="/" name="form1">
+			<div id="form">
+					What did you 
+					<select id="index" name="index">
+					  <option value="Books" {% ifequal index "Books" %}selected{% endifequal %}>read</option>
+					  <option value="VideoGames" {% ifequal index "VideoGames" %}selected{% endifequal %}>play</option>
+					  <option value="Video" {% ifequal index "Video" %}selected{% endifequal %}>watch</option>
+					  <option value="Music" {% ifequal index "Music" %}selected{% endifequal %}>listen to</option>
+					</select>
+					last?<br/>
+					<input id="last" name="last" type="text" {% if last %}value="{{last}}"{% endif %}>
+					{% if url %}
+					<input id="button" value="next" title="Click to get Nexterlizer's suggestion" type="submit">
+					{% else %}
+					<br/>
+					<span>Let Nexterlizer suggest what's </span>
+					<input id="button" value="next" title="Click to get Nexterlizer's suggestion" type="submit">
+					{% endif %}
+					<input id="country" name="country" type="hidden">
+					<input id="itemIndex" name="itemIndex" type="hidden" value={{itemIndex}}>
+			</div>
+
+			{% if url %} 
+			<div id="result">
+				<!--You read <em>{{last}}</em> last, you should read <a href="{{url}}">{{ title }}</a> next.-->
+				Nexterlizer suggests <a href="{{url}}">{{ title }}</a>
+				{% if something_else %}
+				<br/>
+				(See <a href="http://blog.nexterlizer.com/post/117426155/somethingelse">here</a> for query tips.)
+				{% endif %}
+			</div>
+			{% endif %}
+
+		</form>
+		</div>
+
+		<script type="text/javascript" language="Javascript">
+		//<![CDATA[
+
+				if (!google.loader.ClientLocation) {
+					google.loader.ClientLocation = WIPlocation;
+				}
+
+				oFormObject = document.forms["form1"]; 
+				oFormObject.elements["country"].value = google.loader.ClientLocation.address.country_code;
+		//]]>
+		</script>	
+	</div>
+
+</body>
+</html>
+
+

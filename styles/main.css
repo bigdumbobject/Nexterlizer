@@ -1,0 +1,67 @@
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 2em;
+}
+
+input[type="text"] {
+  border:1px solid #CCCCCC;;
+  font-size:0.94em;
+  padding:4px 6px;
+  width:55%;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+h1 {
+    font-weight: normal;
+    margin:0;
+	font-size:1em;
+}
+
+#button, #index 
+{
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-topright:10px;
+	background:#EEEEEE none repeat scroll 0 0;
+	font-size:0.94em;
+}
+
+#header
+{
+	background-color:rgba(255, 255, 255, 0.6);
+	bottom:0;
+	margin-top:5px;
+	padding:30px;
+	position:fixed;
+	right:0;
+	text-align:right;
+	z-index:200;
+}
+
+#content
+{
+	margin-top:40px;
+	margin-left:40px;
+}
+
+#container
+{
+    margin:10px;
+}
+
+#form, #result
+{
+	margin: 10px;
+}
+
+.description {
+	font-size:small;
+	margin: 0;
+}
+
+.about {
+	font-size:small;
+	margin: 0;
+}
